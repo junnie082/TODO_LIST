@@ -25,4 +25,8 @@ public class MemoryTaskRepository implements TaskRepository {
     public List<Task> findAll() {
         return new ArrayList<>(store.values());
     }
+
+    public void clearStore() {
+        store.clear();
+    }
 }

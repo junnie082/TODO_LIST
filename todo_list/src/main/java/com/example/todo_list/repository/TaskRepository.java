@@ -10,4 +10,5 @@ public interface TaskRepository {
     Optional<Task> findByPriority(Long priority);
     List<Task> findAll();
 
+    void clearStore();
 }
