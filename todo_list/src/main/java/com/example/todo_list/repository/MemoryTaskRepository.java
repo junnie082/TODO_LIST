@@ -2,12 +2,14 @@ package com.example.todo_list.repository;
 
 import com.example.todo_list.domain.Task;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Repository
 public class MemoryTaskRepository implements TaskRepository {
 
-    private final Map<Long, Task> store = new HashMap<>();
+    public final Map<Long, Task> store = new HashMap<>();
     private long priority = 0L;
 
     @Override

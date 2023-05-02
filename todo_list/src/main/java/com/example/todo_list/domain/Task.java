@@ -1,5 +1,8 @@
 package com.example.todo_list.domain;
 
+import lombok.ToString;
+
+@ToString
 public class Task {
 
     private String task;
