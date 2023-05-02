@@ -1,18 +1,19 @@
 package com.example.todo_list.repository;
 
 import com.example.todo_list.domain.Task;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.*;
 
 public class MemoryTaskRepository implements TaskRepository {
 
-    private static Map<Long, Task> store = new HashMap<>();
-    private static long priority = 0L;
+    private final Map<Long, Task> store = new HashMap<>();
+    private long priority = 0L;
 
     @Override
     public Task save(Task task) {
         task.setPriority(++priority);
-        store.put(++priority, task);
+        store.put(priority, task);
         return task;
     }
 
@@ -28,5 +29,6 @@ public class MemoryTaskRepository implements TaskRepository {
 
     public void clearStore() {
         store.clear();
+        this.priority = 0L;
     }
 }
