@@ -8,7 +8,11 @@ import java.util.Optional;
 
 public class TaskService {
 
-    private final MemoryTaskRepository taskRepository = new MemoryTaskRepository();
+    private MemoryTaskRepository taskRepository = new MemoryTaskRepository();
+
+    TaskService(MemoryTaskRepository taskRepository) {
+        this.taskRepository = taskRepository;
+    }
 
     // 할일 추가.
     public Long add(Task task) {
@@ -18,9 +22,15 @@ public class TaskService {
 
     // priority 로 조회
     public Optional<Task> findByPriority(Long priority) {
-        if (taskRepository.store.size() < priority) {
-            throw new IllegalArgumentException("해당 우선순위가 없습니다.");
+        try {
+            if (taskRepository.store.size() < priority) {
+                throw new IllegalArgumentException("해당 우선순위가 없습니다");
+            }
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("해당 우선순위가 없습니다");
+            //e.getMessage();
         }
+
         return taskRepository.findByPriority(priority);
     }
 
