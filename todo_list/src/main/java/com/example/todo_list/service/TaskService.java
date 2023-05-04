@@ -2,10 +2,12 @@ package com.example.todo_list.service;
 
 import com.example.todo_list.domain.Task;
 import com.example.todo_list.repository.MemoryTaskRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class TaskService {
 
     private MemoryTaskRepository taskRepository = new MemoryTaskRepository();
