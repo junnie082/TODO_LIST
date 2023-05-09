@@ -15,7 +15,7 @@ import java.util.List;
 @Controller
 public class TodoListController {
     private final MemoryTaskRepository taskService;
-    
+
     @Autowired
     public TodoListController(MemoryTaskRepository taskService) {
         this.taskService = taskService;
@@ -67,7 +67,6 @@ public class TodoListController {
     @GetMapping(value = "/tasks")
     public String list(Model model) {
         List<Task> tasks = taskService.findAll();
-        System.out.println(tasks);
         model.addAttribute("tasks", tasks);
         return "tasks/taskList";
     }
