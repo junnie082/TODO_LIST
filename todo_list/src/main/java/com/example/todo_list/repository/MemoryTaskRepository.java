@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository
 public class MemoryTaskRepository implements TaskRepository {
 
     public final Map<Long, Task> store = new HashMap<>();
