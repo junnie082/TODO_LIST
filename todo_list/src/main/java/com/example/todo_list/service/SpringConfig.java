@@ -12,7 +12,6 @@ public class SpringConfig {
     public TaskService taskService() {
         return new TaskService((MemoryTaskRepository) taskRepository());
     }
-
     @Bean
     public TaskRepository taskRepository() {
         return new MemoryTaskRepository();

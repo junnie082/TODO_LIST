@@ -14,8 +14,8 @@ import java.util.List;
 
 @Controller
 public class TodoListController {
-
     private final MemoryTaskRepository taskService;
+    
     @Autowired
     public TodoListController(MemoryTaskRepository taskService) {
         this.taskService = taskService;
